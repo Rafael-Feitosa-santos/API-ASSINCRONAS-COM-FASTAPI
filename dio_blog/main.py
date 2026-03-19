@@ -18,7 +18,6 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(lifespan=lifespan)
 
-# ✅ handler da exception
 @app.exception_handler(NotFoundPostError)
 async def not_found_post_handler(request: Request, exc: NotFoundPostError):
     return JSONResponse(
@@ -37,5 +36,4 @@ async def duplicate_post_handler(request, exc: DuplicatePostError):
         content={"detail": exc.message}
     )
 
-# ✅ rotas
 app.include_router(post.router)
