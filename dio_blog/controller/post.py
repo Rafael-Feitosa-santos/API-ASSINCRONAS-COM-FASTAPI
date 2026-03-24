@@ -1,10 +1,11 @@
-from fastapi import APIRouter, status
+from fastapi import APIRouter, status, Depends
 
 from dio_blog.schemas.post import PostIn, PostUpdateIn
 from dio_blog.service.post import PostService
 from dio_blog.views.post import PostOut
+from dio_blog.security import login_required
 
-router = APIRouter(prefix="/posts")
+router = APIRouter(prefix="/posts", dependencies=[Depends(login_required)])
 
 service = PostService()
 
