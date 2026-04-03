@@ -1,9 +1,9 @@
 from databases.interfaces import Record
 
-from dio_blog.database import database
-from dio_blog.model.post import posts
-from dio_blog.schemas.post import PostIn, PostUpdateIn
-from dio_blog.views.exceptions import NotFoundPostError, DuplicatePostError
+from dio_blog.src.database import database
+from dio_blog.src.model.post import posts
+from dio_blog.src.schemas.post import PostIn, PostUpdateIn
+from dio_blog.src.views.exceptions import NotFoundPostError, DuplicatePostError
 
 
 class PostService:

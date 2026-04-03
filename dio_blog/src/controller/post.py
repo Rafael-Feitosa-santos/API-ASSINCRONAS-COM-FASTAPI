@@ -1,9 +1,9 @@
 from fastapi import APIRouter, status, Depends
 
-from dio_blog.schemas.post import PostIn, PostUpdateIn
-from dio_blog.service.post import PostService
-from dio_blog.views.post import PostOut
-from dio_blog.security import login_required
+from dio_blog.src.schemas.post import PostIn, PostUpdateIn
+from dio_blog.src.service.post import PostService
+from dio_blog.src.views.post import PostOut
+from dio_blog.src.security import login_required
 
 router = APIRouter(prefix="/posts", dependencies=[Depends(login_required)])
 

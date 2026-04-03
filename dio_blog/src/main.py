@@ -2,9 +2,9 @@ from contextlib import asynccontextmanager
 
 from fastapi import FastAPI, Request
 
-from dio_blog.controller import post, auth
-from dio_blog.database import database, metadata, engine
-from dio_blog.views.exceptions import NotFoundPostError
+from dio_blog.src.controller import auth, post
+from dio_blog.src.database import database, metadata, engine
+from dio_blog.src.views.exceptions import NotFoundPostError
 
 
 @asynccontextmanager
@@ -29,7 +29,7 @@ async def not_found_post_handler(request: Request, exc: NotFoundPostError):
 
 
 from fastapi.responses import JSONResponse
-from dio_blog.views.exceptions import DuplicatePostError
+from dio_blog.src.views.exceptions import DuplicatePostError
 
 
 @app.exception_handler(DuplicatePostError)
