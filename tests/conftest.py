@@ -1,18 +1,17 @@
-
 import asyncio
 
 import pytest_asyncio
 from httpx import ASGITransport, AsyncClient
 
-from src.config import settings
+from dio_blog.src.config import settings
 
 settings.database_url = "sqlite:///tests.db"
 
 
 @pytest_asyncio.fixture
 async def db(request):
-    from src.database import database, engine, metadata  # noqa
-    from src.models.post import posts  # noqa
+    from dio_blog.src.database import database, engine, metadata  # noqa
+    from dio_blog.src.models.post import posts  # noqa
 
     await database.connect()
     metadata.create_all(engine)
